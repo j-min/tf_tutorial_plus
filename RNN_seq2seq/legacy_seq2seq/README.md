@@ -15,7 +15,7 @@
 
 ##### The attention mechanism used here is of [Grammar as a Foreign Language](https://arxiv.org/abs/1412.7449).
 
-##### If you are already familiary with seq2seq codes, try replacing codes here with high-level NLP packages such as [nltk](http://www.nltk.org/index.html), [spacy](https://spacy.io/) or [konlpy](http://konlpy.org/en/v0.4.4/)!
+##### If you are already familiar with seq2seq codes, try replacing codes here with high-level NLP packages such as [nltk](http://www.nltk.org/index.html), [spacy](https://spacy.io/) or [konlpy](http://konlpy.org/en/v0.4.4/)!
 - You can start with [nltk.FreqDist](http://www.nltk.org/book/ch02.html)
 
 
