@@ -18,6 +18,7 @@
 ### Contents
 
 - Preprocess: Vocabulary / tokenizer
+- Word Embeddings
 - Basic seq2seq model `BasicRNNCell` with `static_rnn`
 - Training / Decode / Plot
 - `XXX_Wrappers`
