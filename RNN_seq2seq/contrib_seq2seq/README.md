@@ -49,7 +49,7 @@ return finished, next_inputs, state
 class BasicDecoderOutput(
     collections.namedtuple("BasicDecoderOutput", ("rnn_output", "sample_id"))):
 ```
-- [tf-seq2seq](https://github.com/google/seq2seq/blob/master/seq2seq/) ver. (`DecoderOutput` in [rnn_decoder](https://github.com/google/seq2seq/blob/master/seq2seq/decoders/rnn_decoder.py))
+- [tf-seq2seq](https://github.com/google/seq2seq/blob/master/seq2seq/) ver. (`DecoderOutput` in [rnn_decoder.py](https://github.com/google/seq2seq/blob/master/seq2seq/decoders/rnn_decoder.py))
 ```
 class DecoderOutput(
     namedtuple("DecoderOutput", ["logits", "predicted_ids", "cell_output"]))
