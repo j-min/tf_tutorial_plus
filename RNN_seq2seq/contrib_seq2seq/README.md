@@ -5,7 +5,9 @@
 ### 1. Helper
 
 #### `__init__(inputs, sequence_length, time_major=False)`
-- `input_tas = tf.TensorArray.unstack(inputs)`
+```
+input_tas = tf.TensorArray.unstack(inputs)
+```
 
 #### `initialize()`
 ```
