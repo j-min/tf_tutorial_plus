@@ -2,7 +2,7 @@
 
 ## 1. Classes
 
-### 1) Helper
+### 1. Helper
 
 #### `__init__(inputs, sequence_length, time_major=False)`
 - `input_tas = tf.TensorArray.unstack(inputs)`
@@ -33,10 +33,10 @@ else:
 return (finished, next_inputs, state)
 ```
 
-### 2) DecoderOutput
+### 2. DecoderOutput
 `namedtuple("DecoderOutput", ("rnn_output", "sample_id")))`
 
-### 3) Decoder
+### 3. Decoder
 
 #### `__init__(cell, helper, initial_state, output_layer=None)`
 - output_layer: an instance of [`tf.layers.Layer`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/layers/core.py)
@@ -73,10 +73,10 @@ return (outputs, next_state, next_inputs, finished)
 
 ## 2. Functions
 
-### 1) dynamic_decode
+### 1. dynamic_decode
 
 #### Args:
-- decoder: a [Decoder](###3\)-decoder) instance
+- decoder: a [Decoder](###3.-decoder) instance
 - output_time_major=False
 - impute_finished=False
 - maximum_iterations=32
