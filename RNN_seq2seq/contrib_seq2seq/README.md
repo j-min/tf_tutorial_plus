@@ -1,5 +1,7 @@
 # API guide for [tf.contrib.seq2seq](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/)
 
+- All readme codes are Pythonic pseudocodes
+
 ## Classes
 
 ### Helper
@@ -13,10 +15,10 @@ input_tas = tf.TensorArray.unstack(inputs)
 ```
 finished = [False, False, ...] (batch_size)
 if all(finished):
-  next_inputs = zero-padded with same shape
+  next_inputs = zero_inputs # zero-tensor with same shape
 else:
   next_inputs = input_tas[0]
-return (finished, next_inputs)
+return finished, next_inputs
 ```
 
 #### `sample(time, outputs)`
@@ -26,13 +28,13 @@ sample_ids = tf.argmax(outputs, axis=-1, dtype=tf.int32)
 
 #### `next_inputs(time, outputs, state)`
 ```
-next_time = time + 1
-finished = (next_time > sequence_length) (check if each batch is completed)
+time += 1
+finished = (time > sequence_length) # check if each batch is completed
 if all(finished):
   next_inputs = zero-padded with same shape
 else:
-  next_inputs = input_tas[next_time]
-return (finished, next_inputs, state)
+  next_inputs = input_tas[time]
+return finished, next_inputs, state
 ```
 
 ### DecoderOutput
@@ -68,11 +70,11 @@ return decoder._helper.initialize() + (decoder._initial_state, )
 ```
 cell_outputs, cell_state = cell(inputs, state)
 if output_layer is not None:
-        cell_outputs = output_layer(cell_outputs)
+  cell_outputs = output_layer(cell_outputs)
 sample_ids = helper.sample(time, cell_outputs) # sometimes cell_state is needed
-(finished, next_inputs, next_state) = helper.next_inputs(time, cell_outputs, cell_state, sample_ids)
+finished, next_inputs, next_state = helper.next_inputs(time, cell_outputs, cell_state, sample_ids)
 outputs = DecoderOutput(cell_outputs, sample_ids)
-return (outputs, next_state, next_inputs, finished)
+return outputs, next_state, next_inputs, finished
 ```
 
 ## Functions
@@ -103,7 +105,7 @@ while not all(finished):
   # if finished!
   # => zero out all remaining outputs
   if impute_finished:
-    outputs = zero_outputs
+    outputs = zero_outputs # zero-tensor with same shape
 
   outputs_ta[time] = outputs
 
