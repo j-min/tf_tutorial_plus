@@ -21,7 +21,7 @@ return (finished, next_inputs)
 
 #### `sample(time, outputs)`
 ```
-sample_ids = tf.argmax(outputs, axis=-1, tf.int32)
+sample_ids = tf.argmax(outputs, axis=-1, dtype=tf.int32)
 ```
 
 #### `next_inputs(time, outputs, state)`
@@ -64,7 +64,7 @@ return DecoderOutput(_rnn_output_size(), TensorShape([]))
 return decoder._helper.initialize() + (decoder._initial_state, )
 ```
 
-#### step(time, inputs, state)
+#### `step(time, inputs, state)`
 ```
 cell_outputs, cell_state = cell(inputs, state)
 if output_layer is not None:
