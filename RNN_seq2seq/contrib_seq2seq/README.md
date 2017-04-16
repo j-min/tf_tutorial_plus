@@ -1,8 +1,8 @@
 # API guide for [tf.contrib.seq2seq](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/)
 
-## 1. Classes
+## Classes
 
-### 1. Helper
+### Helper
 
 #### `__init__(inputs, sequence_length, time_major=False)`
 ```
@@ -35,10 +35,12 @@ else:
 return (finished, next_inputs, state)
 ```
 
-### 2. DecoderOutput
-`namedtuple("DecoderOutput", ("rnn_output", "sample_id")))`
+### DecoderOutput
+```
+DecoderOutput = namedtuple("DecoderOutput", ("rnn_output", "sample_id")))
+```
 
-### 3. Decoder
+### Decoder
 
 #### `__init__(cell, helper, initial_state, output_layer=None)`
 - output_layer: an instance of [`tf.layers.Layer`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/layers/core.py)
@@ -73,12 +75,12 @@ outputs = DecoderOutput(cell_outputs, sample_ids)
 return (outputs, next_state, next_inputs, finished)
 ```
 
-## 2. Functions
+## Functions
 
-### 1. dynamic_decode
+### dynamic_decode
 
 #### Args:
-- decoder: a [Decoder](###3.-decoder) instance
+- decoder: a [Decoder](#decoder) instance
 - output_time_major=False
 - impute_finished=False
 - maximum_iterations=32
