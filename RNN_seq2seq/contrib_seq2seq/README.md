@@ -1,6 +1,8 @@
 # API guide for [tf.contrib.seq2seq](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/)
 
-- All readme codes are Pythonic pseudocodes
+- As of r1.1
+- tf.contrib.seq2seq has similar API with [tf-seq2seq](https://google.github.io/seq2seq/)
+- All codes in readme are Pythonic pseudocodes.
 
 ## Classes
 
@@ -8,12 +10,12 @@
 
 #### `__init__(inputs, sequence_length, time_major=False)`
 ```
-input_tas = tf.TensorArray.unstack(inputs)
+input_tas = TensorArray.unstack(inputs)
 ```
 
 #### `initialize()`
 ```
-finished = [False, False, ...] (batch_size)
+finished = [False, False, ...] # [batch_size, ]
 if all(finished):
   next_inputs = zero_inputs # zero-tensor with same shape
 else:
@@ -31,7 +33,7 @@ sample_ids = tf.argmax(outputs, axis=-1, dtype=tf.int32)
 time += 1
 finished = (time > sequence_length) # check if each batch is completed
 if all(finished):
-  next_inputs = zero-padded with same shape
+  next_inputs = zero-tensor with same shape
 else:
   next_inputs = input_tas[time]
 return finished, next_inputs, state
@@ -39,7 +41,7 @@ return finished, next_inputs, state
 
 ### DecoderOutput
 ```
-DecoderOutput = namedtuple("DecoderOutput", ("rnn_output", "sample_id")))
+DecoderOutput = namedtuple("DecoderOutput", ("rnn_output", "sample_id"))
 ```
 
 ### Decoder
