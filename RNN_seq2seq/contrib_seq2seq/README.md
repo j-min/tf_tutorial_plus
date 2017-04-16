@@ -57,7 +57,7 @@ class DecoderOutput(
 
 ### Decoder
 - Main decoder class
-- Used as an attribute of [dynamic_decode](#dynamic_decode)
+- Used as an argument of [dynamic_decode](#dynamic_decode)
 - `basic_decoder` is defined in [basic_decoder.py](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py)
 
 #### `__init__(cell, helper, initial_state, output_layer=None)`
