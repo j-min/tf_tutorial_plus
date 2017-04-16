@@ -2,11 +2,14 @@
 
 - As of r1.1
 - tf.contrib.seq2seq has similar API with [tf-seq2seq](https://google.github.io/seq2seq/)
-- All codes in readme are Pythonic pseudocodes.
+- All codes in readme are Pythonic pseudocodes
 
 ## Classes
 
 ### Helper
+- Used as an attribute of [Decoder](#decoder) class
+- Replaces wrapper functions (ex. `EmbeddingWrapper`, `OutputProjectionWrapper`, `AttentionWrapper`) used in [legacy_seq2seq](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/legacy_seq2seq/python/ops/seq2seq.py) functions
+- Defined in [helper.py](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/python/ops/helper.py)
 
 #### `__init__(inputs, sequence_length, time_major=False)`
 ```
@@ -40,11 +43,22 @@ return finished, next_inputs, state
 ```
 
 ### DecoderOutput
+- Wraps [Decoder](#decoder)'s attributes such as `output_size`, `output_dtype`
+- [tf.contrib.seq2seq](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py#L40) ver. (`BasicDecoderOutput` in [basic_decoder.py](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py))
 ```
-DecoderOutput = namedtuple("DecoderOutput", ("rnn_output", "sample_id"))
+class BasicDecoderOutput(
+    collections.namedtuple("BasicDecoderOutput", ("rnn_output", "sample_id"))):
+```
+- [tf-seq2seq](https://github.com/google/seq2seq/blob/master/seq2seq/) ver. (`DecoderOutput` in [rnn_decoder](https://github.com/google/seq2seq/blob/master/seq2seq/decoders/rnn_decoder.py))
+```
+class DecoderOutput(
+    namedtuple("DecoderOutput", ["logits", "predicted_ids", "cell_output"]))
 ```
 
 ### Decoder
+- Main decoder class
+- Used as an attribute of [dynamic_decode](#dynamic_decode)
+- `basic_decoder` is defined in [basic_decoder.py](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/python/ops/basic_decoder.py)
 
 #### `__init__(cell, helper, initial_state, output_layer=None)`
 - output_layer: an instance of [`tf.layers.Layer`](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/layers/core.py)
@@ -82,6 +96,8 @@ return outputs, next_state, next_inputs, finished
 ## Functions
 
 ### dynamic_decode
+- Perform dynamic decoding with [Decoder](#decoder)
+- Defined in [decoder.py](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/python/ops/decoder.py)
 
 #### Args:
 - decoder: a [Decoder](#decoder) instance
