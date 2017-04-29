@@ -1,6 +1,6 @@
 # API guide for [tf.contrib.seq2seq](https://github.com/tensorflow/tensorflow/blob/r1.1/tensorflow/contrib/seq2seq/)
 
-- As of r1.1
+- As of 1.1
 - tf.contrib.seq2seq has similar API with [tf-seq2seq](https://google.github.io/seq2seq/)
 - All codes in readme are Pythonic pseudocodes
 
