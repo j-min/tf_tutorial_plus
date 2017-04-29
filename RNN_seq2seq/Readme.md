@@ -1,9 +1,9 @@
 # Architecture Guidelines
 
-##### Separating your modules in right way can improve 'reproducibility' and 'readability' of your codes significantly.
-#### After you walkthrough my tutorials, I would suggest implementing your own models in separate files.
+#### Separating your modules in right way can improve 'reproducibility' and 'readability' of your codes significantly.
+#### After you walkthrough these tutorials, I would suggest implementing your own models in separate files.
 
-##### For example,
+#### For example,
 
 ```
 project_dir/
@@ -57,7 +57,7 @@ model.build(..)
 model.evaluate(..)
 ```
 
-### (optional 1) `config.py`
+### (optional) `config.py`
 - path/hyperparameter configurations
 - For example,
 	- Non-Python extensions (`ConfigParser` + `.ini / .yaml`...)
@@ -65,7 +65,7 @@ model.evaluate(..)
 	- Argument parsers (`argparse`, `tf.app.flags`)
 	- Combined parsers (`configargparse`)
 
-### (optional 2) `hpsearch.py`
+### (optional) `hpsearch.py`
 - meta-module for searching the best hyperparameter combination of your model.
 - For example,
 	- `sklearn.model_selection`
