@@ -1,6 +1,7 @@
 # Architecture Guidelines
 
-##### Separate your modules in right way can improve 'reproducibility' and 'readability' of your codes significantly. After you walkthrough my tutorials, I would suggest implementing your own models in separate files.
+##### Separating your modules in right way can improve 'reproducibility' and 'readability' of your codes significantly.
+#### After you walkthrough my tutorials, I would suggest implementing your own models in separate files.
 
 ##### For example,
 
