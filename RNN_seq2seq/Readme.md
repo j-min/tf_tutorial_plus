@@ -42,7 +42,7 @@ class Seq2SeqModel(..)
 ```
 from model import Seq2SeqModel
 
-model = Seq2SeqMoel(..)
+model = Seq2SeqModel(..)
 model.build(..)
 model.train(..)
 ```
@@ -52,7 +52,7 @@ model.train(..)
 ```
 from model import Seq2SeqModel
 
-model = Seq2SeqMoel(..)
+model = Seq2SeqModel(..)
 model.build(..)
 model.evaluate(..)
 ```
