@@ -27,7 +27,7 @@ import Counter
 tokenizer = ...
 ```
 
-`models.py` (or `base_model.py` + `layers.py` + `models.py`)
+### `models.py` (or `base_model.py` + `layers.py` + `models.py`)
 
 ```
 import tensorflow as tf
