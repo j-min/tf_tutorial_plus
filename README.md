@@ -1,5 +1,8 @@
-# tf_tutorial_plus
-TensorFlow Tutorials for APIs that are not well covered in official documentation
+# TensorFlow Tutorial +
+
+Tutorials for TensorFlow APIs the official documentation doesn't cover
+
+TF Version: 1.1
 
 # Contents (To be updated)
 
@@ -10,7 +13,6 @@ TensorFlow Tutorials for APIs that are not well covered in official documentatio
 
 ## Datatypes
 - tf.SpareTensor
-- tf.TensorArray
 
 ## Math operations
 - tf.contrib.distributions
@@ -18,6 +20,5 @@ TensorFlow Tutorials for APIs that are not well covered in official documentatio
 ## Shape Transformations
 - nest
 
-## Pre-trained Models
-- Fine-tune ILSVRC models with tf.slim
-
+## Normalization
+- Batch Normalization
