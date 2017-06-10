@@ -14,6 +14,10 @@ TF Version: 1.1
 ## Datatypes
 - tf.SpareTensor
 
+## Save_Restore
+- List of uninitialized variables
+- Partial Restore (for uninitialized variables)
+
 ## Math operations
 - tf.contrib.distributions
 
